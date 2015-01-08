@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="costDao" class="org.learn.dao.JdbcCostDao">
+
+    </bean>
+    <!--定义方面-->
+    <bean id="loggerAspectBean" class="org.learn.aspect.LoggerAspectBean"/>
+    <!--<aop:config>-->
+        <!--&lt;!&ndash;切入点,制定目标&ndash;&gt;-->
+        <!--<aop:pointcut id="daopoint" expression="within(org.learn.dao..*)"/>-->
+        <!--&lt;!&ndash;方面&ndash;&gt;-->
+        <!--<aop:aspect ref="loggerAspectBean">-->
+            <!--&lt;!&ndash;通知&ndash;&gt;-->
+            <!--<aop:after method="mylog" pointcut-ref="daopoint"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+    <!--<aop:config>-->
+        <!--<aop:aspect ref="loggerAspectBean">-->
+            <!--<aop:before method="mylog" pointcut="within(org.learn.dao..*)"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+
+    <!--开启APO注解配置 @Aspect @Before ,@After-->
+    <aop:aspectj-autoproxy/>
+</beans>
